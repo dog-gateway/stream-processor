@@ -23,8 +23,6 @@ import it.polito.elite.dog.core.library.model.notification.CloseNotification;
 import it.polito.elite.dog.core.library.model.notification.DetectedNotification;
 import it.polito.elite.dog.core.library.model.notification.EventNotification;
 import it.polito.elite.dog.core.library.model.notification.IsPresentNotification;
-import it.polito.elite.dog.core.library.model.notification.MovementCeasedNotification;
-import it.polito.elite.dog.core.library.model.notification.MovementDetectedNotification;
 import it.polito.elite.dog.core.library.model.notification.NonParametricNotification;
 import it.polito.elite.dog.core.library.model.notification.NotDetectedNotification;
 import it.polito.elite.dog.core.library.model.notification.NotPresentNotification;
@@ -34,6 +32,8 @@ import it.polito.elite.dog.core.library.model.notification.OpenNotification;
 import it.polito.elite.dog.core.library.model.notification.ParametricNotification;
 import it.polito.elite.dog.core.library.model.notification.PressedNotification;
 import it.polito.elite.dog.core.library.model.notification.ReleasedNotification;
+import it.polito.elite.dog.core.library.model.notification.SimpleMovementNotification;
+import it.polito.elite.dog.core.library.model.notification.SimpleNoMovementNotification;
 import it.polito.elite.dog.core.library.util.LogHelper;
 import it.polito.elite.stream.processing.EsperStreamProcessor;
 import it.polito.elite.stream.processing.StreamProcessor;
@@ -471,7 +471,7 @@ public class SpChainsOSGi implements EventHandler, ManagedService,
 
 						// handle supported notifications (binary)
 						if ((receivedNotification instanceof OnNotification)
-								|| (receivedNotification instanceof MovementDetectedNotification)
+								|| (receivedNotification instanceof SimpleMovementNotification)
 								|| (receivedNotification instanceof OpenNotification)
 								|| (receivedNotification instanceof IsPresentNotification)
 								|| (receivedNotification instanceof DetectedNotification)
@@ -480,7 +480,7 @@ public class SpChainsOSGi implements EventHandler, ManagedService,
 							value = 1.0;
 						}
 						else if ((receivedNotification instanceof OffNotification)
-								|| (receivedNotification instanceof MovementCeasedNotification)
+								|| (receivedNotification instanceof SimpleNoMovementNotification)
 								|| (receivedNotification instanceof CloseNotification)
 								|| (receivedNotification instanceof NotPresentNotification)
 								|| (receivedNotification instanceof NotDetectedNotification)
