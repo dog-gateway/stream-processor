@@ -70,7 +70,7 @@ public class OutgoingEventQueue extends EventQueue
 			notification.setDeviceUri(event.getStreamName());
 			
 			// create the OSGi event
-			Event notificationEvent = EventFactory.createEvent(notification, SpChainsOSGi.class.getSimpleName());
+			Event notificationEvent = EventFactory.createNotificationEvent(notification, SpChainsOSGi.class.getSimpleName());
 			
 			// post the event
 			this.eventAdmin.postEvent(notificationEvent);
@@ -90,7 +90,7 @@ public class OutgoingEventQueue extends EventQueue
 				notification.setDeviceUri(event.getStreamName());
 				
 				// create the OSGi event
-				Event notificationEvent = EventFactory.createEvent(notification, SpChainsOSGi.class.getSimpleName());
+				Event notificationEvent = EventFactory.createNotificationEvent(notification, SpChainsOSGi.class.getSimpleName());
 				
 				// post the event
 				this.eventAdmin.postEvent(notificationEvent);
